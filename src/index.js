@@ -6,10 +6,12 @@ const bodyParser = require("body-parser");
 const authRouter = require("./routes/authRoutes");
 const trackRouter = require("./routes/trackRoutes");
 const requireAuth = require("./middlewares/requireAuth");
+let cors = require("cors");
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(authRouter);
